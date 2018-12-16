@@ -1,7 +1,4 @@
 # DensePCR
-Repository for 'Dense 3D Point Cloud Reconstruction Using a Deep Pyramid Network [WACV 2019]'
-
-# DensePCR
 This repository contains the source codes for the paper [Dense 3D Point Cloud Reconstruction Using a Deep Pyramid Network](http://val.serc.iisc.ernet.in/valweb/papers/WACV19_Dense_PCR.pdf).</br>
 Accepted at *Winter Conference on Applications of Computer Vision (WACV 2019)*
 
