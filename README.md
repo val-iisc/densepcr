@@ -5,7 +5,7 @@ Accepted at *Winter Conference on Applications of Computer Vision (WACV 2019)*
 ## Citing this work
 If you find this work useful in your research, please consider citing:
 ```
-@inproceedings{mandikal20183dpsrnet,
+@inproceedings{mandikal2019densepcr,
  author = {Mandikal, Priyanka and Babu, R Venkatesh},
  booktitle = {Winter Conference on Applications of Computer Vision ({WACV})},
  title = {Dense 3D Point Cloud Reconstruction Using a Deep Pyramid Network},
