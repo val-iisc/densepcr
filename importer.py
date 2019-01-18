@@ -16,6 +16,7 @@ import tflearn
 from utils.data_utils import *
 from utils.encoders_decoders import *
 from utils.model_utils import *
+from utils.train_utils import *
 
 from utils.chamfer import tf_nndistance
 from utils.emd.tf_auctionmatch import auction_match
