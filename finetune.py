@@ -1,9 +1,7 @@
 '''
-Code for training the baseline approach, which consists of directly predicting 16k points.
-No emd calculated anywhere because computationally expensive; also no reg loss; this is difference from train_baseline.py
+Code for finetuning the base and dense reconstruction networks in an end-to-end manner.
 Run as:
-	python train_end_to_end.py --ip 251 --gpu 0 --exp 1_fg --exp_psgn expts/baseline/1_1024_emd --exp_dense_1 expts/upsampling/1a_fg_1024/ --exp_dense_2 expts/upsampling/1b_fg_4096/ --category all --bottleneck 512 --fold
-	python train_end_to_end.py --ip 251 --gpu 0 --exp 2_fgl --exp_psgn expts/baseline/1_1024_emd --exp_dense_1 expts/upsampling/2a_fgl_1024/ --exp_dense_2 expts/upsampling/2b_fgl_4096/ --category all --bottleneck 512 --fold --local
+	python finetune.py --data_dir_imgs <path to images> --data_dir_pcl <path to point clouds> --gpu 0 --exp 1_fgl --exp_psgn expts/base/1_1024_emd --exp_dense_1 expts/dense/1a_fgl_1024/ --exp_dense_2 expts/dense/1b_fgl_4096/ --category all --bottleneck 512 --fold --local
 '''
 
 from importer import *
@@ -56,7 +54,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = str(FLAGS.gpu)
 VAL_BATCH_SIZE = FLAGS.batch_size
 BATCH_SIZE = FLAGS.batch_size
 
-exp_dir = join('expts','end_to_end',FLAGS.exp)
+exp_dir = join('expts','finetune',FLAGS.exp)
 
 
 def fetch_batch(models, indices, batch_num, batch_size):

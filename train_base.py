@@ -2,7 +2,7 @@
 Code for training the base reconstruction network, which consists of regressing N points from an image.
 N here is set to 1024.
 Run as:
-	python train_base.py --exp 1_1024_emd --gpu 0 --bottleneck 512 --category all --pcl_size 1024 --loss emd
+	python train_base.py --exp 1_1024_emd --data_dir_imgs <path to images> --data_dir_pcl <path to point clouds> --gpu 0 --bottleneck 512 --category all --pcl_size 1024 --loss emd
 '''
 
 from importer import *

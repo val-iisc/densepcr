@@ -1,14 +1,11 @@
 '''
-Code for training the dense upsampling network, which consists of upsampling N points to U*N points, U being the upsampling factor. U=4 is used.
+Code for training the dense reconstruction network, which consists of upsampling N points to U*N points, U being the upsampling factor. U=4 is used.
 Loss used is Chamfer distance.
-Three variants are tried:
-	globlal_feature + grid_conditioning
+Concatenated features are:
 	globlal_feature + local_feature + grid_conditioning
-	globlal_feature + multiple_local_features + grid_conditioning
 Run as:
-	python train_upsampling.py --exp 1_fg --ip 132 --gpu 0 --category all --in_pcl_size 1024 --fold
-	python train_upsampling.py --exp 2_fgl --ip 132 --gpu 0 --category all --in_pcl_size 1024  --fold --local
-	python train_upsampling.py --exp 3_fgml --ip 132 --gpu 1 --category all --in_pcl_size 1024  --fold --multiple_local
+	python train_dense.py --exp 1a_fgl_1024 --data_dir_pcl <path to point clouds> --gpu 0 --category all --in_pcl_size 1024  --fold --local
+	python train_dense.py --exp 1b_fgl_4096 --data_dir_pcl <path to point clouds> --gpu 0 --category all --in_pcl_size 4096  --fold --local
 '''
 
 from importer import *
@@ -54,7 +51,7 @@ VAL_BATCH_SIZE = FLAGS.batch_size
 BATCH_SIZE = FLAGS.batch_size
 IN_PCL_SIZE = FLAGS.in_pcl_size
 
-exp_dir = join('expts','upsampling',FLAGS.exp)
+exp_dir = join('expts','dense',FLAGS.exp)
 
 
 def fetch_batch(models, batch_num, batch_size):
